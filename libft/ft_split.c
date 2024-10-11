@@ -6,94 +6,120 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:03:40 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/11 13:51:37 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/11 19:17:32 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t    ft_countw(char const *s, char c)
+static char	**free_array(char **dest, int i)
 {
-	size_t	count;
-	int		inword;
-
-	count = 0;
-	inword = 0;
-	while (*s)
+	while (i > 0)
 	{
-		if (*s == c)
-			inword = 0;
-		else if (inword == 0)
+		free(dest[--i]);
+	}
+	free(dest);
+	return (0);
+}
+
+static int	count_word(char const *s, char c)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			i++;
+		else
 		{
-			inword = 1;
 			count++;
+			while (s[i] && s[i] != c)
+				i++;
 		}
-		s++;
 	}
 	return (count);
 }
 
-char	*ft_malloc(char **res, int i, size_t len)
+static char	*strword(const char *start, const char *end)
 {
+	size_t	len;
+	size_t	i;
 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-	{
-		while (i > 0)
-			free(res[--i]);
-		free(res);
+	len = end - start;
+	i = 0;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (str == NULL)
 		return (NULL);
+	while (i < len)
+	{
+		str[i] = start[i];
+		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
-void	fill(char **res, char const *s, char c, size_t *i)
+static char	**splitword(const char *s, char c, char **dest)
 {
-	size_t	len;
+	size_t		i;
+	const char	*start;
 
-	while (*s)
+	i = 0;
+	while (*s != '\0')
 	{
-		len = 0;
-		while (*s == c && *s)
-			s++;
-		while (s[len] && s[len] != c)
-			len++;
-		if (len > 0)
+		if (*s != c)
 		{
-			res[*i] = ft_malloc(res, *i, len);
-			if (!res[*i])
-				return ;
-			ft_strlcpy(res[*i], s, len + 1);
-			(*i)++;
+			start = s;
+			while (*s != '\0' && *s != c)
+				s++;
+			dest[i] = strword(start, s);
+			if (dest[i] == NULL)
+			{
+				free_array(dest, i);
+				return (NULL);
+			}
+			i++;
 		}
-		s += len;
+		else
+			s++;
 	}
+	dest[i] = NULL;
+	return (dest);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	numword;
-	char	**res;
-	size_t	i;
+	char		**dest;
+	size_t		nbword;
 
 	if (!s)
 		return (NULL);
-	numword = ft_countw(s, c);
-	res = (char **)malloc(sizeof(char *) * (numword + 1));
-	if (!res)
+	nbword = count_word(s, c);
+	dest = (char **)malloc((nbword + 1) * sizeof(char *));
+	if (dest == NULL)
 		return (NULL);
-	i = 0;
-	fill(res, s, c, &i);
-	res[i] = NULL;
-	return (res);
+	dest = splitword(s, c, dest);
+	return (dest);
 }
 
-/*
-int	main(void)
-{
-	char	str[] = "salut comment vas tu ?";
-	char	c = ' ';
+/*#include <stdio.h>
 
-	ft_split(str, c);
-}*/
+int main() {
+	char **result;
+	size_t i;
+
+	result = ft_split("hello world!", ' ');
+	if (result) {
+		for (i = 0; result[i] != NULL; i++) {
+			printf("%s\n", result[i]);
+			free(result[i]); // Libération de chaque chaîne
+		}
+		free(result); // Libération du tableau de pointeurs
+	}
+	return 0;
+}
+*/

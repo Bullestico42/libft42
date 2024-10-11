@@ -26,7 +26,7 @@ SRC =	ft_itoa.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 
 # Fichiers source bonus
 SRCBONUS =	ft_lstnew.c ft_lstsize.c ft_lstadd_front.c ft_lstlast.c \
-			ft_lstadd_back.c
+			ft_lstadd_back.c ft_lstdelone.c
 
 # Objets correspondants
 OBJ = $(SRC:.c=.o)
