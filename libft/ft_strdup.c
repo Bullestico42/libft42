@@ -6,7 +6,7 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:10:25 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/04 12:38:49 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/09 16:22:48 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strdup(const char *src)
 	char	*dest;
 	size_t	i;
 
-	i = 0;
 	i = ft_strlen(src);
 	dest = (char *)malloc(sizeof(char) * i + 1);
 	if (!dest)

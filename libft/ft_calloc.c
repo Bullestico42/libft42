@@ -6,7 +6,7 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:32:03 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/04 12:46:56 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:06:12 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*tmp;
-	size_t	i;
+	void	*ptr;
+	size_t	total_size;
 
-	i = 0;
-	tmp = (char *)malloc(sizeof(size) * count + 1);
-	if (!tmp)
+	total_size = count * size;
+	ptr = malloc(total_size);
+	if (!ptr)
 		return (NULL);
-	while (i < count * size)
-	{
-		tmp[i] = 0;
-		i++;
-	}
-	tmp[i] = '\0';
-	return (tmp);
+	ft_bzero(ptr, total_size);
+	return (ptr);
 }

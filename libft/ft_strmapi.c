@@ -6,7 +6,7 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:53:49 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/08 20:50:58 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:04:22 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 		res[i] = (f)(i, s[i]);
 		i++;
 	}
+	res[i] = '\0';
 	return (res);
 }

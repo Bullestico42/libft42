@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apiscopo <apiscopo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 14:05:18 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/04 17:40:32 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:27:15 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t				i;
 
 	i = 0;
-	if (dst == 0 || src == 0)
-		return (dst);
+	if (!dst && !src)
+		return (NULL);
 	tmpd = (unsigned char *)dst;
 	tmps = (const unsigned char *)src;
 	while (n > 0)

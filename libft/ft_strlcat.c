@@ -6,7 +6,7 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:53:07 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/04 12:48:51 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/09 16:26:10 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	dstl = 0;
 	srcl = 0;
+	i = 0;
 	while (dstl < dstsize && dst[dstl] != '\0')
 		dstl++;
 	while (src[srcl])
 		srcl++;
 	if (dstsize <= dstl)
 		return (dstsize + srcl);
-	i = 0;
 	while (i < srcl && (dstl + i + 1) < dstsize)
 	{
 		dst[dstl + i] = src[i];

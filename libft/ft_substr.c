@@ -6,7 +6,7 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 17:16:35 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/06 16:48:20 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:09:46 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
-	size_t	lens;
-	char	*res;
+	size_t			i;
+	size_t			j;
+	unsigned int	lens;
+	char			*res;
 
 	i = start;
 	j = 0;
@@ -25,7 +25,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	lens = ft_strlen(s);
 	if (start >= lens)
-		return (NULL);
+		return (ft_strdup(""));
 	if (lens - start < len)
 		len = lens - start;
 	res = (char *)malloc(sizeof(char) * len + 1);

@@ -6,7 +6,7 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:16:35 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/04 12:39:54 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:30:42 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	if (!src || !dst)
-	{
-		return (0);
-	}
 	if (dstsize == 0)
 	{
 		return (ft_strlen(src));
