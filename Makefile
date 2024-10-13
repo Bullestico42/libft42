@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    MakeFile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apiscopo <apiscopo@student.42.fr>          +#+  +:+       +#+         #
+#    By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/01 16:29:27 by apiscopo          #+#    #+#              #
-#    Updated: 2024/10/01 16:29:27 by apiscopo         ###   ########.fr        #
+#    Created: 2024/10/13 15:09:35 by apiscopo          #+#    #+#              #
+#    Updated: 2024/10/13 15:09:35 by apiscopo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC =	ft_itoa.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 
 # Fichiers source bonus
 SRCBONUS =	ft_lstnew.c ft_lstsize.c ft_lstadd_front.c ft_lstlast.c \
-			ft_lstadd_back.c ft_lstdelone.c
+			ft_lstadd_back.c ft_lstdelone.c ft_lstiter.c ft_lstclear.c \
+			ft_lstmap.c
 
 # Objets correspondants
 OBJ = $(SRC:.c=.o)

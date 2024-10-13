@@ -6,7 +6,7 @@
 /*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:03:40 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/10/11 19:17:32 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/10/12 18:29:04 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ static int	count_word(char const *s, char c)
 	}
 	return (count);
 }
+
+/*
+		 /\_/\
+		( o.o )
+		 > ^ <
+*/
 
 static char	*strword(const char *start, const char *end)
 {
